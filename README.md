@@ -5,7 +5,7 @@ Dette repository indeholder koden til at køre en **Kali Linux** container som e
 ## Funktioner
 - Baseret på `kalilinux/kali-rolling`.
 - Installerer Python og RunPod SDK.
-- Inkluderer præ-installerede tools som `nmap` (kan udvides i Dockerfile).
+- Inkluderer `kali-tools-top10` (metasploit, nmap, wireshark, etc.).
 - Accepterer shell-kommandoer via JSON input.
 
 ## Installation & Deployment
@@ -14,7 +14,7 @@ Dette repository indeholder koden til at køre en **Kali Linux** container som e
 Du skal have Docker installeret lokalt.
 
 ```bash
-docker build -t dit-brugernavn/runpod-kali:v1 .
+docker build --platform linux/amd64 -t dit-brugernavn/runpod-kali:v1 .
 ```
 
 ### 2. Push til Docker Hub
