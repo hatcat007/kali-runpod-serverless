@@ -14,7 +14,11 @@ RUN apt-get update && apt-get install -y \
     nmap \
     curl \
     iputils-ping \
+    libcap2-bin \
     && rm -rf /var/lib/apt/lists/*
+
+# Fix for "Operation not permitted" on RunPod/Docker (removes file capabilities)
+RUN setcap -r /usr/lib/nmap/nmap || true
 
 # Opret et virtuelt miljø til Python (anbefalet på nyere Linux distroer)
 ENV VIRTUAL_ENV=/opt/venv
